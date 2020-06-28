@@ -21,7 +21,8 @@ This script fetches latest glucose reading from Dexcom and publishes to MQTT.
 * `crontab -e`
 * `*/5 * * * * cd /path/to/dex2mqtt && /path/to/npm start >/dev/null 2>&1`
 
-## Read values with Home Assistant sensor
+## Home Assistant
+### Read values with sensor
 
 In `configuration.yml`
 
@@ -42,4 +43,35 @@ sensor:
     name: Glucose
     icon: mdi:chart-bell-curve-cumulative
     unit_of_measurement: mmol/L
+```
+
+### Change light color depending on glucose reading
+
+In `automations.yml`:
+
+```
+  - alias: Glucose lamp color
+    trigger:
+      platform: mqtt
+      topic: 'glucose/current'
+    action:
+      - service: light.turn_on
+        entity_id: light.<lamp name>
+        data_template:
+          color_name: >
+            {% if (trigger.payload|float) < 3 or (trigger.payload|float) > 15 %}
+              red
+            {% elif (trigger.payload|float) > 5 and (trigger.payload|float) < 10 %}
+              green
+            {% elif (((trigger.payload|float) - 8)|abs) < 1 %}
+              greenyellow
+            {% elif (((trigger.payload|float) - 8)|abs) < 2.5 %}
+              yellow
+            {% elif (((trigger.payload|float) - 8)|abs) < 5 %}
+              orange
+            {% elif (((trigger.payload|float) - 8)|abs) > 5 %}
+              orangered
+            {% else %}
+              white
+            {% endif %}
 ```
