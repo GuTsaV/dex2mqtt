@@ -1,0 +1,25 @@
+{
+  "name": "dex2mqtt",
+  "version": "1.0.0",
+  "description": "This script fetches latest glucose reading from Dexcom and publishes to MQTT.",
+  "main": "index.js",
+  "engines": {
+    "node": "~14.4.0"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GuTsaV/dex2mqtt.git"
+  },
+  "scripts": {
+    "start": "node --require dotenv/config index.js"
+  },
+  "author": "Gustav Ehrenborg",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "async-mqtt": "^2.6.0",
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "querystring": "^0.2.0"
+  }
+}
