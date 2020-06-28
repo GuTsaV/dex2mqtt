@@ -16,10 +16,10 @@ This script fetches latest glucose reading from Dexcom and publishes to MQTT.
 * `npm start`
 
 ## Schedule with cron
-`which npm` gives the path to npm.
+`which node` gives the path to node.
 
 * `crontab -e`
-* `*/5 * * * * cd /path/to/dex2mqtt && /path/to/npm start >/dev/null 2>&1`
+* `*/5 * * * * cd /path/to/dex2mqtt && /path/to/node --require ./node_modules/dotenv/config index.js >/dev/null 2>&1
 
 ## Home Assistant
 ### Read values with sensor
