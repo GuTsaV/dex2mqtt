@@ -1,3 +1,4 @@
+import 'dotenv/config.js';
 import axios from 'axios';
 import mqtt from 'async-mqtt';
 import { stringify } from 'querystring';

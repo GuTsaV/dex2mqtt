@@ -12,7 +12,7 @@
     "url": "https://github.com/GuTsaV/dex2mqtt.git"
   },
   "scripts": {
-    "start": "node --require dotenv/config index.js"
+    "start": "node index.js"
   },
   "author": "Gustav Ehrenborg",
   "license": "UNLICENSED",
