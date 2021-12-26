@@ -4,7 +4,7 @@
   "description": "This script fetches latest glucose reading from Dexcom and publishes to MQTT.",
   "main": "index.js",
   "engines": {
-    "node": "~14.4.0"
+    "node": "~17.0.0"
   },
   "type": "module",
   "repository": {
@@ -17,9 +17,9 @@
   "author": "Gustav Ehrenborg",
   "license": "UNLICENSED",
   "dependencies": {
-    "async-mqtt": "^2.6.0",
-    "axios": "^0.19.2",
-    "dotenv": "^8.2.0",
-    "querystring": "^0.2.0"
+    "async-mqtt": "^2.6.1",
+    "axios": "^0.24.0",
+    "dotenv": "^10.0.0",
+    "querystring": "^0.2.1"
   }
 }
